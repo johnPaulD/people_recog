@@ -1,6 +1,5 @@
 import sys
 import dlib
-#from skimage import io
 import cv2 as cv
 
 # Take the image file name from the command line
@@ -40,14 +39,10 @@ for i, face_rect in enumerate(detected_faces):
     end = (face_rect.right(),face_rect.bottom())
     bColor= (0,190,0)
     #print("Start{} End{} Color{}".format(start, end, bColor))
-    image = cv.rectangle(image,start,end,bColor,1)
-#cv.imshow("Faces", image)
+    image = cv.rectangle(image,start,end,bColor,3)
+
 file_name.replace(".jpg", "")
-cv.imwrite(file_name + 'face-detect.jpg',image)
+cv.imwrite(file_name + '_face-detect.jpg',image)
+#cv.imshow("Faces", image)
 #cv.waitKey(8000)
 #cv.destroyAllWindows()
-# Draw a box around each face we found
-#win.add_overlay(face_rect)
-	        
-# Wait until the user hits <enter> to close the window	        
-#dlib.hit_enter_to_continue()
